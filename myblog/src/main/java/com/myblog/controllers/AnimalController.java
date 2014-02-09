@@ -3,24 +3,39 @@ package com.myblog.controllers;
 import java.util.List;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
 
-import com.myblog.models.Animal;
+import com.myblog.models.User;
 import com.myblog.services.StorageServices;
+import com.myblog.utils.SessionUtils;
 
 @Controller
 public class AnimalController {
 	
+
+	@RequestMapping({"/home"})
+	public String home(@ModelAttribute("model") ModelMap model){
+		
+		List<User> list = StorageServices.getUserService().getAll();
+		model.addAttribute("animals", list);
+		
+		return "home";
+	}
 	
-	@RequestMapping("/animal")
-	public ModelAndView getMsg(){
-		Animal animal = new Animal();
-		animal.setName("dfdfd");
+	@RequestMapping({"/test"})
+	public String test(@ModelAttribute("model") ModelMap model){
+		List<User> list = StorageServices.getUserService().getAll();
+		model.addAttribute("animals", list);
+		SessionUtils.getCurrentUser();
 		
-		List<Animal> list = StorageServices.getAnimalService().getAll();
-		
-		return new ModelAndView("animal", "animals", list);
+		return "home";
 	}
 
+	
+	@RequestMapping({"/error"})
+	public String home(){
+		return "error";
+	}
 }

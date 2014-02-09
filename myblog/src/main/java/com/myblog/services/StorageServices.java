@@ -7,11 +7,11 @@ public class StorageServices {
 	private static final StorageServices singleton = new StorageServices();
 	
 	@Autowired
-	private AnimalService animalService;
+	private UserService userService;
+
 	
-	
-	public static AnimalService getAnimalService(){
-		return getSingleton().animalService;
+	public static UserService getUserService(){
+		return getSingleton().userService;
 	}
 
 	public static StorageServices getSingleton() {
