@@ -2,9 +2,9 @@ package com.myblog.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-public class StorageServices {
+public class ServicesStore {
 	
-	private static final StorageServices singleton = new StorageServices();
+	private static final ServicesStore singleton = new ServicesStore();
 	
 	@Autowired
 	private UserService userService;
@@ -14,7 +14,7 @@ public class StorageServices {
 		return getSingleton().userService;
 	}
 
-	public static StorageServices getSingleton() {
+	public static ServicesStore getSingleton() {
 		return singleton;
 	} 
 

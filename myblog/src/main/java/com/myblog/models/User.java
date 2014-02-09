@@ -2,6 +2,8 @@ package com.myblog.models;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -11,13 +13,22 @@ import javax.persistence.Table;
 @Table(name="users")
 public class User {
 	
+	public enum UserPermission{
+		ROLE_ADMIN,
+		ROLE_USER
+	}
+	
 	private Long id;
 	
 	private String email;
 	
-	private String login;
-	
 	private String password;
+	
+	private UserPermission permission;
+	
+	private String givenName;
+	
+	private String surName;
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
@@ -38,15 +49,6 @@ public class User {
 		this.email = email;
 	}
 
-	@Column(unique=true, nullable=false)
-	public String getLogin() {
-		return login;
-	}
-
-	public void setLogin(String login) {
-		this.login = login;
-	}
-
 	@Column(nullable=false)
 	public String getPassword() {
 		return password;
@@ -54,6 +56,31 @@ public class User {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	@Enumerated(EnumType.STRING)
+	public UserPermission getPermission() {
+		return permission;
+	}
+
+	public void setPermission(UserPermission permission) {
+		this.permission = permission;
+	}
+
+	public String getGivenName() {
+		return givenName;
+	}
+
+	public void setGivenName(String givenName) {
+		this.givenName = givenName;
+	}
+
+	public String getSurName() {
+		return surName;
+	}
+
+	public void setSurName(String surName) {
+		this.surName = surName;
 	}
 
 }

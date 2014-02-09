@@ -10,18 +10,18 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
 import com.myblog.models.User;
-import com.myblog.services.StorageServices;
+import com.myblog.services.ServicesStore;
 
 public class UserLoginService implements UserDetailsService {
 
-	public UserDetails loadUserByUsername(String loginOrEmail) throws UsernameNotFoundException {
-		User user = StorageServices.getUserService().getByLoginOrEmail(loginOrEmail);
+	public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+		User user = ServicesStore.getUserService().getByEmail(email);
 		if(user == null){
 			throw new UsernameNotFoundException("Invalid user");
 		}
 		
 		Set<GrantedAuthority> grantedAuthorities = new HashSet<GrantedAuthority>();
-		grantedAuthorities.add(new SimpleGrantedAuthority("ROLE_USER"));
+		grantedAuthorities.add(new SimpleGrantedAuthority(user.getPermission().name()));
 		
 		return new SpringUserImpl(user, grantedAuthorities);
 	}

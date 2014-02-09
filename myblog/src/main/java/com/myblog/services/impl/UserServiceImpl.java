@@ -20,8 +20,8 @@ public class UserServiceImpl extends AbstractServiceImpl<User> implements UserSe
 		return userDAO;
 	}
 
-	public User getByLoginOrEmail(String loginOrEmail) {
-		return getDAO().getByLoginOrEmail(loginOrEmail);
+	public User getByEmail(String email) {
+		return getDAO().getByEmail(email);
 	}
 
 }

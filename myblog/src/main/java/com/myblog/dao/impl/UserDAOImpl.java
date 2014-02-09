@@ -10,9 +10,9 @@ import com.myblog.models.User;
 @Repository
 public class UserDAOImpl extends AbstractDAOImpl<User> implements UserDAO {
 
-	public User getByLoginOrEmail(String loginOrEmail) {
+	public User getByEmail(String email) {
 		Criteria criteria = createCriteria();
-		criteria.add(Restrictions.or(Restrictions.eq("login", loginOrEmail), Restrictions.eq("email", loginOrEmail)));
+		criteria.add(Restrictions.eq("email", email));
 		return (User) criteria.uniqueResult();
 	}
 

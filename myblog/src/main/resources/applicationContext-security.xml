@@ -14,8 +14,10 @@
 			<logout logout-url="/logout" logout-success-url="/"/>
 			
 			
-			<intercept-url pattern="/home*" access="ROLE_USER"/>
-<!-- 			<intercept-url pattern="/**" access="ROLE_GUEST" /> -->
+			<intercept-url pattern="/user*" access="ROLE_USER"/>
+			<intercept-url pattern="/user/**" access="ROLE_USER"/>
+			<intercept-url pattern="/admin*" access="ROLE_ADMIN"/>
+			<intercept-url pattern="/admin/**" access="ROLE_ADMIN"/>
 			
 		</http>
 		

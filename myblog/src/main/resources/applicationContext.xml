@@ -18,8 +18,8 @@
 	<context:component-scan base-package="com.myblog"/>
 	
 		
-	<bean id="storageServices"
-        class="com.myblog.services.StorageServices"
+	<bean id="servicesStore"
+        class="com.myblog.services.ServicesStore"
         factory-method="getSingleton" />
 	
 	<bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
