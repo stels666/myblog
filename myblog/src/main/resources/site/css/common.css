@@ -28,28 +28,46 @@ footer{
     min-width:1000px;
 }
 
+
+
+/* -----------NAVIGATION----------- */
 nav{
     clear:both;
     width:1000px;
     margin: 0 auto;
 }
 
-div.nav_item{
+a.nav_item{
     border-right: 1px solid #324257;
     height: 50px;
     float: left;
-    margin-left: 20px;
+    padding-left: 20px;
     padding-right: 20px;
     line-height: 50px;
     color: #fff;
 }
-div.nav_item:hover{
+
+nav li{
+    float: left;
+    list-style-type: none;
+}
+
+a.nav_item:hover{
     background: rgba(198, 197, 204, 0.15);
 }
-div.nav_item.first{
+a.nav_item.first, menu{
     margin: 0;
     padding: 0;
 }
+
+a.nav_item{
+    text-decoration: none;
+    font-family: sans-serif;
+}
+
+/* -----------END NAVIGATION----------- */
+
+
 
 .top_header{
     background: -moz-linear-gradient(top, #626c7f, #3f536e);
