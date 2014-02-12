@@ -18,6 +18,13 @@
   	<url-pattern>/</url-pattern>
   </servlet-mapping>
   
+  <servlet-mapping>
+    <servlet-name>default</servlet-name>
+    <url-pattern>/WEB-INF/css/*</url-pattern>
+    <url-pattern>/WEB-INF/js/*</url-pattern>
+    <url-pattern>/WEB-INF/img/*</url-pattern>
+  </servlet-mapping>
+  
   <context-param>
   	<param-name>contextConfigLocation</param-name>
   	<param-value>/WEB-INF/mvc-dispatcher-servlet.xml</param-value>

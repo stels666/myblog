@@ -1,0 +1,43 @@
+@CHARSET "UTF-8";
+
+body {
+	margin: 0;
+	padding: 0;
+	font: 75% Arial, Tahoma, Verdana;
+	background: #fff;
+}
+
+.header{
+	background-color: #C90000;
+	height: 100px;
+	width: 100%;
+}
+
+.header_content{
+	background-color: #C90000;
+	height: 100%;
+	width: 1000px;
+}
+
+.logo{
+	float: left;
+	height: 100%;
+	padding-top: 25px;
+}
+
+.logo img{
+	width: 100px;
+}
+
+.login_form{
+	float: right;
+	line-height: 100px;
+}
+
+.content{
+	
+}
+
+.footer{
+	
+}
